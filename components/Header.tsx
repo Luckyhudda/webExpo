@@ -29,8 +29,8 @@ export default function Header() {
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isScrolled 
-          ? 'glass shadow-lg' 
+        isScrolled || isMobileMenuOpen
+          ? 'bg-white dark:bg-slate-900 shadow-lg' 
           : 'bg-transparent'
       }`}
     >
@@ -124,9 +124,9 @@ export default function Header() {
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3 }}
-              className="lg:hidden overflow-hidden"
+              className="lg:hidden overflow-hidden bg-white dark:bg-slate-900"
             >
-              <div className="py-4 border-t border-gray-200 dark:border-slate-700">
+              <div className="py-4 pb-6 border-t border-gray-200 dark:border-slate-700">
                 <div className="flex flex-col space-y-3">
                   {navItems.map((item, index) => (
                     <motion.div
